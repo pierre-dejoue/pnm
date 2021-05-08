@@ -66,7 +66,7 @@ TEST_CASE("test input/output for pgm images", "[pgm io]")
 
     std::random_device dev;
     std::mt19937 mt(dev());
-    std::uniform_int_distribution<std::uint8_t> dist(0, 255);
+    std::uniform_int_distribution<int> dist(0, 255);
 
     for(std::size_t j=0; j<10; ++j)
     {
@@ -114,7 +114,7 @@ TEST_CASE("test input/output for ppm images", "[ppm io]")
 
     std::random_device dev;
     std::mt19937 mt(dev());
-    std::uniform_int_distribution<std::uint8_t> dist(0, 255);
+    std::uniform_int_distribution<int> dist(0, 255);
 
     for(std::size_t j=0; j<10; ++j)
     {

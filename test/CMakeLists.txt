@@ -15,8 +15,11 @@ set(TEST_NAMES
 
 foreach(TEST_NAME ${TEST_NAMES})
     add_executable(${TEST_NAME} ${TEST_NAME}.cpp)
-    set_target_properties(${TEST_NAME} PROPERTIES
-                          COMPILE_FLAGS "-std=c++11 -O2 -Wall -Wpedantic -Wextra")
+    if(NOT MSVC)
+        set_target_properties(${TEST_NAME}
+            PROPERTIES
+            COMPILE_FLAGS "-std=c++11 -O2 -Wall -Wpedantic -Wextra")
+    endif()
     add_test(NAME ${TEST_NAME} COMMAND ${TEST_NAME}
              WORKING_DIRECTORY "${PROJECT_BINARY_DIR}/test")
 endforeach(TEST_NAME)
